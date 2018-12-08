@@ -58,11 +58,11 @@ foreach($input as $row){
 
 }
 
-echo '<br>Part 1: squares with overlap ';
+echo '<br>Part 1: number of squares with overlap ';
 echo count($overlapsquares);
 
 echo '<br><br>';
-echo 'Part 2: claims without overlap <br>';
+echo 'Part 2: claim IDs without overlap ';
 echo join(', ', array_diff($claimids, $overlapids));
 
 

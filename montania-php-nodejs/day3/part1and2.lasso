@@ -58,11 +58,11 @@ iterate(#input, local('row'));
 	//loop_count> 100 ? loop_abort;
 /iterate;
 
-'<br>Part 1: squares with overlap ';
+'<br>Part 1: number of squares with overlap ';
 #overlapsquares->size;
 
 '<br><br>';
-'Part 2: claims without overlap <br>';
+'Part 2: claim IDs without overlap ';
 #claimids->difference(#overlapids)->join(', ');
 
 ]
