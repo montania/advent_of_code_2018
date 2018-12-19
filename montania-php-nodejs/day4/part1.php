@@ -34,8 +34,20 @@ foreach ($log as $logEntry) {
         $guard->fellAsleepAt($event->getTimestamp());
     }
 
+    elseif ($event->isWokeUpEvent()) {
+        $guard->wokeUpAt($event->getTimestamp());
+    }
+
     else {
-        // TODO: implement more events
-        var_dump($logEntry); die();
+        throw new \Exception('Unknown log event');
     }
 }
+
+// Strategy 1: Find the guard that has the most minutes asleep. What minute does that guard spend asleep the most?
+
+// Order guards with the guard with the most minutes asleep first
+usort($guards, function (Guard $a, Guard $b) {
+    return $b->getTotalMinutesAsleep() - $a->getTotalMinutesAsleep();
+});
+
+var_dump($guards[0], $guards[0]->getTotalMinutesAsleep(), $guards[0]->getMinuteMostAsleep());
